@@ -7,9 +7,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FetchDataComponent {
   public exchangers: Exchanger[];
-
+//http://localhost:49385/rates
+//http://mon-api.azurewebsites.net
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Exchanger[]>('http://mon-api.azurewebsites.net').subscribe(result => {
+    http.get<Exchanger[]>('http://mon-api.azurewebsites.net/mocks').subscribe(result => {
       this.exchangers = result;
     }, error => console.error(error));
   }
